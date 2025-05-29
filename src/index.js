@@ -7,8 +7,9 @@ function refreshWeather(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
-
-      
+  let iconElement = document.querySelector("#icon");
+  
+        
   cityElement.innerHTML = response.data.city;
 
   descriptionElement.innerHTML = response.data.condition.description;
@@ -21,6 +22,8 @@ function refreshWeather(response) {
   
   temperatureElement.
     innerHTML = Math.round(temperature);
+  
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
   
   function formatDate(date) {
     let minutes = date.getMinutes();
@@ -66,4 +69,4 @@ searchFormElement.addEventListener("submit", handleSearchSubmit);
 searchCity("Palm Springs");
 
 
- //console.log(response.data);
+//console.log(response.data);
