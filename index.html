@@ -16,6 +16,7 @@
 
     <header>
       <form class="search-form" id="search-form">
+
         <input type="search" placeholder="Enter a city..." required id="search-form-input" class="search-form-input" />
         <input type="submit" value="Search" class="search-form-button" />
       </form>
@@ -26,32 +27,35 @@
       <div class="weather-app-data">
         <div>
           <h1 class="weather-app-city" id="city"></h1>
-          <p class="weather-app-details"><span id="time"></span>
-            <span id="description"></span> 
+          <p class="weather-app-details">
+            <span id="time"></span>
+            <span id="description"></span>
             <br />
-            Humidity: <strong id="humidity"></strong>, Wind: <strong id="wind-speed"></strong>
+            Humidity: <strong id="humidity"></strong>,
+            Wind: <strong id="wind-speed"></strong>
           </p>
         </div>
         <div class="weather-app-temp-container">
           <div id="icon">
-            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png" class="weather-app-icon">
-          </div>    
-             <div class="weather-app-temperature" id="temperature"></div>
+            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+              class="weather-app-icon">
+          </div>
+          <div class="weather-app-temperature" id="temperature"></div>
           <div class="weather-app-unit">°F</div>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
 
 
-  <footer>
-    Coded by
-    <a href="https://github.com/Tabitha-1/" target="blank">
-      Tabitha Bilsborough</a>
-    | Open-sourced on
-    <a href="https://github.com/Tabitha-1/Weather-App-May-2025" target="blank">Github</a>
-    and
-    <a href="https://weather-app-may-2025.netlify.app/" target="blank">hosted on Netflify</a>
-  </footer>
+    <footer>
+      Coded by
+      <a href="https://github.com/Tabitha-1/" target="blank">
+        Tabitha Bilsborough</a>
+      | Open-sourced on
+      <a href="https://github.com/Tabitha-1/Weather-App-May-2025" target="blank">Github</a>
+      and
+      <a href="https://weather-app-may-2025.netlify.app/" target="blank">hosted on Netflify</a>
+    </footer>
   </div>
 
   <script src="src/index.js"></script>
