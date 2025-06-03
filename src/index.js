@@ -21,6 +21,9 @@ function refreshWeather(response) {
         
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
 
+  getForecast(response.data.city);
+
+
 
   function formatDate(date) {
     let minutes = date.getMinutes();
@@ -59,17 +62,24 @@ function handleSearchSubmit(event) {
 }
 
 
+function getForecast(city) {
+  let apiKey = "f0b8e7489bdt33d396d965oa317cf040";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+  axios(apiUrl).then(displayForecast);
+}
 
 
-function displayForecast() {
-  
+
+function displayForecast(response) {
+  console.log(response.data)
+
+
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat",];
   let forecastHtml = "";
 
   days.forEach(function (day) {
     forecastHtml =
-      forecastHtml +
-      `
+      forecastHtml + `
       <div class="weather-forecast-day">
         <div class="weather-forecast-date">${day}</div>
         <div class="weather-forecast-icon">⛅</div>
@@ -92,8 +102,9 @@ let searchFormElement = document.querySelector("#search-form");
 
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
-searchCity("Palm Springs");
-displayForecast();
+searchCity("Palm-Springs");
+getForecast("Palm-Springs");
+
 
 
 //console.log(response.data);
