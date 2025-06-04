@@ -12,15 +12,13 @@ function refreshWeather(response) {
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
-
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
-
   windSpeedElement.innerHTML = `${response.data.wind.speed}mph`;
   temperatureElement.innerHTML = Math.round(temperature);
-
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
 
   getForecast(response.data.city);
+}
 
   function formatDate(date) {
     let minutes = date.getMinutes();
@@ -42,7 +40,7 @@ function refreshWeather(response) {
 
     return `${day} ${hours}:${minutes}`;
   }
-}
+
 
 function searchCity(city) {
   let apiKey = "f0b8e7489bdt33d396d965oa317cf040";
@@ -71,10 +69,9 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  //console.log(response.data);
-
   let forecastHtml = "";
-
+  //console.log(response.data);
+  
   response.data.daily.forEach(function (day, index) {
     if (index < 5) {
       forecastHtml =
@@ -90,7 +87,7 @@ function displayForecast(response) {
           </div>
           <div class="weather-forecast-temperature">${Math.round(
             day.temperature.minimum
-          )}</div>
+          )}°</div>
         </div> 
       </div> 
     `;
@@ -102,8 +99,6 @@ function displayForecast(response) {
 }
 
 let searchFormElement = document.querySelector("#search-form");
-
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Palm-Springs");
-getForecast("Palm-Springs");
